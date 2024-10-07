@@ -77,6 +77,8 @@ inputs:
       will use these binaries.
   sn-auditor-version:
     description: Supply a version for the sn-auditor. Otherwise the latest will be used.
+  uploaders-count:
+    description: Number of uploaders to run per VM
   uploader-vm-count:
     description: Number of uploader VMs to be deployed
 
@@ -117,6 +119,7 @@ runs:
         SAFE_NETWORK_BRANCH: ${{ inputs.safe-network-branch }}
         SAFE_NETWORK_USER: ${{ inputs.safe-network-user }}
         SN_AUDITOR_VERSION: ${{ inputs.sn-auditor-version }}
+        UPLOADERS_COUNT: ${{ inputs.uploaders-count }}
         UPLOADER_VM_COUNT: ${{ inputs.uploader-vm-count }}
       shell: bash
       run: |
@@ -155,6 +158,7 @@ runs:
         [[ -n $SN_AUDITOR_VERSION ]] && command="$command --sn-auditor-version $SN_AUDITOR_VERSION "
         [[ -n $SAFE_NETWORK_BRANCH ]] && command="$command --branch $SAFE_NETWORK_BRANCH "
         [[ -n $SAFE_NETWORK_USER ]] && command="$command --repo-owner $SAFE_NETWORK_USER "
+        [[ -n $UPLOADER_COUNT ]] && command="$command --uploaders-count $UPLOADER_COUNT "
         [[ -n $UPLOADER_VM_COUNT ]] && command="$command --uploader-vm-count $UPLOADER_VM_COUNT "
 
         echo "Will run testnet-deploy with: $command"
