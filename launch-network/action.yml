@@ -166,7 +166,7 @@ runs:
         [[ -n $SAFENODE_MANAGER_VERSION ]] && command="$command --safenode-manager-version $SAFENODE_MANAGER_VERSION "
         [[ -n $SAFENODE_VERSION ]] && command="$command --safenode-version $SAFENODE_VERSION "
         [[ -n $SN_AUDITOR_VERSION ]] && command="$command --sn-auditor-version $SN_AUDITOR_VERSION "
-        [[ -n $UPLOADER_COUNT ]] && command="$command --uploaders-count $UPLOADER_COUNT "
+        [[ -n $UPLOADERS_COUNT ]] && command="$command --uploaders-count $UPLOADERS_COUNT "
         [[ -n $UPLOADER_VM_COUNT ]] && command="$command --uploader-vm-count $UPLOADER_VM_COUNT "
 
         echo "Will run testnet-deploy with: $command"
